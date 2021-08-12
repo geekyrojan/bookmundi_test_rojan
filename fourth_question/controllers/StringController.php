@@ -24,8 +24,10 @@
 				$data['result'] = explode(' ',$text);
 			}
 
+			echo json_encode($data);
 
-			//Render View
-			$this->view->render('exploded.phtml',$data);
+
+//			//Render View
+//			$this->view->render('exploded.phtml',$data);
 		}
 	}
