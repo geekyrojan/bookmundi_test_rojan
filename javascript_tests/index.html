@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookmundi.com Javascript Tests</title>
+
+    <script src="question1.js"></script>
+    <script src="question_3.js"></script>
+</head>
+<body>
+
+<h1>Question 1 - Create Library similar to JQuery</h1>
+<input type="text" id="query_test" class="query_test" value="3" data-href="#"/>
+<p>Current Input value is: <span class="input_value"></span></p>
+<p>GET Response</p>
+<p class="get_response"></p>
+<p>Post Response</p>
+<p class="post_response"></p>
+
+<label for="">Choose One</label>
+<input type="checkbox" class="check_test car" name="choose_one[]" value="car" checked/>car
+<input type="checkbox" class="check_test bike" name="choose_one[]" value="bike" />bike
+<p>First Checked value is: <span class="checked_value"></span></p>
+
+<label>Select One</label>
+<select class="select_one">
+    <option value="plane">Plane</option>
+    <option value="helicopter" selected>Helicopter</option>
+</select>
+
+<p>First Selected value before changing is: <span class="selected_value"></span></p>
+<script>
+    //1. a. Change class of Dom Element
+    $('#query_test').changeClass('new_query_test');
+
+    //1. b. Get DataSet Value of Element
+    $('#query_test').data('href');
+
+    //1. c. Inject new Element before and after current element
+    $('#query_test').insertElementAfter("h4","After");
+    $('#query_test').insertElementBefore("h4","Before");
+
+    //1.d. Make both GET & POST Request
+    var response = domElement.prototype.get("https://reqres.in/api/users?page=2");
+    $('.get_response').html(response);
+
+    var response = domElement.prototype.post({url: "https://reqres.in/api/users", data:{name: "Morpheus", "job":"Leader"}});
+    $('.post_response').html(response);
+
+
+    //1. e. Get & Set Values of Input / Checkbox / Select Dropdown
+    var value = $('.query_test').val();
+    $('.input_value').html(value);
+
+    var value = $('.check_test').val();
+    $('.checked_value').html(value);
+
+    $('.bike').prop('checked',true);
+
+    var value = $('.select_one').val();
+    $('.selected_value').html(value);
+
+    $('.select_one').val('plane');
+
+
+
+</script>
+
+<h1>Question 2 - 3 Post Requests have been resolved and printed in console</h1>
+<!-- 3 POST requests are being called and responses are printed in console-->
+<script src="question2.js"></script>
+
+<h1>Question 3 - Copy to Clipboard</h1>
+<span class="copy_text">Copy this Text to Clipboard</span>
+<button onclick="copyToClipboard(document.querySelector('.copy_text'))">Copy</button>
+
+<h4>Question 4 - Simple 2 Way Binding</h4>
+<div class="field">
+    <label for="name">Enter your name:</label>
+    <input id="name" type="text" name="name"  data-model="name" />
+</div>
+
+<div class="field">
+    <label for="title">Enter your title:</label>
+    <input id="title" type="text" name="title" data-model="title" />
+</div>
+
+<div class="results">
+    <h1 data-binding="name"></h1>
+    <h2 data-binding="title"></h2>
+</div>
+<button onclick="changeValues()">Change Values</button>
+<script src="question4.js"></script>
+</body>
+</html>
